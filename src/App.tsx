@@ -3,7 +3,7 @@ function App() {
 
   return (
     <>
-      <main className='mx-auto flex flex-col justify-center items-center px-5 py-10 space-y-10'>
+      <main className='mx-auto flex flex-col justify-center items-center px-5 sm:px-0 py-10 space-y-10'>
 
         <div className="w-full">
           <div className="relative">
@@ -69,7 +69,13 @@ function App() {
           </div>
 
           <div className="pt-10">
-            <h5 className="text-lg text-gray-400 font-semibold">Sinonymous <span className="text-(--purple) font-bold ml-5">electronic keyboard</span></h5>
+            <p className="text-gray-500 inline-flex">Source: 
+              <a href="#s" className="flex flex-row items-center gap-2 ml-6 underline text-black">https/wikipedia.com/keyword
+                <span>
+                  <svg width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 10.5L21 3m-5 0h5v5m0 6v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>  
+                </span>
+              </a>
+            </p>
           </div>
         </div>
       </main>
