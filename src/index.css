@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --light-gray: #8e9495;
+  --purple: #a84bd3;
+  --light-purple: #e1c5ee;
+}
+
+body {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
