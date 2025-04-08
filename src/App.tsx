@@ -4,11 +4,12 @@ import { PartOfSpeech } from "./lib/components/PartOfSpeech"
 import { Source } from "./lib/components/source"
 import { searchInDictionary } from "./lib/services/dictionary";
 import React from "react";
+import { DictionaryEntry } from "./lib/interfaces/dictionary";
 
 function App() {
   const [ isLoading, setIsLoading ] = useState(true);
   const [ wordValue, setWordValue ] = useState('');
-  const [ data, setData ] = useState(null)
+  const [ data, setData ] = useState<DictionaryEntry[] | null>(null)
 
   const searchData = async (word: string) => {
     setIsLoading(true) 
