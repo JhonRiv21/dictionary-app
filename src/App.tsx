@@ -40,7 +40,7 @@ function App() {
   
         <div className="w-full">
           <div className="relative">
-            <input value={wordValue} onChange={(e) => setWordValue(e.target.value)} className="bg-gray-100 border border-gray-300 w-full py-3 px-3 rounded-xl "/>
+            <input value={wordValue} onChange={(e) => setWordValue(e.target.value)} className="bg-gray-100 border border-gray-300 dark:text-black w-full py-3 px-3 rounded-xl "/>
             <span className="absolute right-4 top-3.5 pointer-events-none">
               <svg width="20" height="20" viewBox="0 0 24 24"><path fill="none" className="stroke-(--light-gray)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.553 15.553a7.06 7.06 0 1 0-9.985-9.985a7.06 7.06 0 0 0 9.985 9.985m0 0L20 20"/></svg>
             </span>
@@ -51,7 +51,7 @@ function App() {
           <div>
             <h1 className="text5xl md:text-6xl font-bold">{wordValue}</h1>   
               {data && (
-                <p className="text-(--purple) text-xl md:text-2xl pt-2 font-medium">
+                <p className="text-(--purple) text-2xl md:text-3xl pt-2 font-bold">
                   {data[0]?.phonetic ?? ''}
                 </p>
               )}
@@ -97,11 +97,11 @@ function App() {
                           {meaning.definitions.map((def, k) => (
                             <React.Fragment key={k + 'k'}>
                               <li className="flex items-start gap-5 text-sm md:text-base">
-                                <span className="p-[3px] rounded-full bg-black mt-2"></span>
+                                <span className="p-[3px] rounded-full bg-black dark:bg-[var(--light-gray)] mt-2"></span>
                                 <span>
                                   {def.definition}
                                   {meaning.partOfSpeech === 'verb' && def.example && (
-                                    <p className="text-gray-600 font-medium py-1">"{def.example}"</p>
+                                    <p className="text-gray-400 font-medium py-1">"{def.example}"</p>
                                   )}
                                 </span>
                               </li>

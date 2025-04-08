@@ -17,11 +17,11 @@
   --font-merriweather: "Merriweather", serif;
 
   /* Light mode */
-  --bg: #fcfcfc;
+  --bg: #eeeeee;
   --text: #000;
 
   /* Dark mode */
-  --bg-dark: #1a1a1a;
+  --bg-dark: #161515;
   --text-dark: #f5f5f5;
 
   background-color: var(--bg);
@@ -31,6 +31,7 @@
 html[data-theme="dark"] {
   --bg: var(--bg-dark);
   --text: var(--text-dark);
+  --light-gray: #f5f5f5;
 }
 
 body {
