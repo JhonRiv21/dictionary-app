@@ -1,4 +1,7 @@
 
+import { PartOfSpeech } from "./lib/components/PartOfSpeech"
+import { Source } from "./lib/components/source"
+
 function App() {
 
   return (
@@ -25,10 +28,7 @@ function App() {
           </button>
         </div>
 
-        <div className="flex flex-row items-center w-full gap-5">
-          <p className="text-2xl font-semibold">noun</p>
-          <div className="bg-gray-300 w-full h-[0.5px]"></div>
-        </div>
+        <PartOfSpeech title="noun" />
 
         <div className="mr-auto">
             <div>
@@ -47,14 +47,10 @@ function App() {
 
             <div className="pt-10">
               <h5 className="text-lg text-gray-400 font-semibold">Sinonymous <span className="text-(--purple) font-bold ml-5">electronic keyboard</span></h5>
-              
             </div>
         </div>
 
-        <div className="flex flex-row items-center w-full gap-5">
-          <p className="text-2xl font-semibold">verb</p>
-          <div className="bg-gray-300 w-full h-[0.5px]"></div>
-        </div>
+        <PartOfSpeech title="verb" />
 
         <div className="mr-auto">
           <div>
@@ -68,15 +64,7 @@ function App() {
             </ul>
           </div>
 
-          <div className="pt-10">
-            <p className="text-gray-500 sm:inline-flex">Source: 
-              <a href="#s" className="flex flex-row items-center gap-2 sm:ml-6 underline text-black">https/wikipedia.com/keyword
-                <span>
-                  <svg width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 10.5L21 3m-5 0h5v5m0 6v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>  
-                </span>
-              </a>
-            </p>
-          </div>
+          <Source url="https://api.dictionaryapi.dev/api/v2/entries/en/keyboard" />
         </div>
       </main>
     </>
