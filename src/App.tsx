@@ -50,12 +50,10 @@ function App() {
         <div className="flex flex-wrap gap-4 flex-row justify-between w-full items-center">
           <div>
             <h1 className="text-5xl font-bold">{wordValue}</h1>   
-              {isLoading ? (
-                <p className="text-(--purple) text-xl pt-2 font-medium">Loading...</p>
-              ) : data ? (
-                <p className="text-(--purple) text-xl pt-2 font-medium">{data[0]?.phonetics?.[0]?.text ?? ''}</p>
-              ) : (
-                <p className="text-(--purple) text-xl pt-2 font-medium">No results found</p>
+              {data && (
+                <p className="text-(--purple) text-xl pt-2 font-medium">
+                  {data[0]?.phonetics?.[0]?.text ?? ''}
+                </p>
               )}
           </div>
 
@@ -65,47 +63,63 @@ function App() {
         </div>
 
         {isLoading ? (
-          <p>Cargando datos...</p>
+          <h2 className="text-4xl mt-20">Cargando datos...</h2>
         ) : (
           <div>
-            <PartOfSpeech title="noun" />
+            {data.map((item, i) => (
+              <div key={i + 'i'}>
+                {item.meanings.map((meaning, j) => (
+                  <div key={j + 'j'}>
+                    <PartOfSpeech title={meaning.partOfSpeech} />
+                  
+                    <div className="mr-auto">
+                      <div>
+                        <h5 className="text-lg pt-5 text-gray-400 font-semibold">Meaning</h5>
+                        <ul className="space-y-4 pt-5">
+                          {meaning.definitions.map((def, k) => (
+                            <li key={k + 'k'} className="flex items-center gap-5 text-sm">
+                              <span className="p-[3px] rounded-full bg-black"></span>
+                              {def.definition}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-            <div className="mr-auto">
+                      {meaning.synonyms.length > 0 && (
+                        <div className="py-10">
+                        <h5 className="text-lg text-gray-400 font-semibold">Sinonymous
+                          {meaning.synonyms.map((sin, l) => (
+                            <span key={l + 'l'} className="text-(--purple) font-bold ml-5">{sin}</span>
+                          ))}
+                        </h5>
+                      </div>
+                      )}
+                    
+                    
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+
+           
+            <div className="mt-10">
+              <PartOfSpeech title="verb" />
+              <div className="mr-auto">
                 <div>
                   <h5 className="text-lg text-gray-400 font-semibold">Meaning</h5>
-                  <ul className="space-y-4 pt-5">
+                  <ul className="space-y-2 pt-5">
                     <li className="flex items-center gap-5 text-sm">
                       <span className="p-[3px] rounded-full bg-black"></span>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem architecto eum iste officiis dolorum, quaerat, eaque deleniti quos, modi sunt voluptas quasi delectus consectetur officia nisi voluptates rerum quia natus!
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </li>
-                    <li className="flex items-center gap-5 text-sm">
-                      <span className="p-[3px] rounded-full bg-black"></span>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem architecto eum iste officiis dolorum, quaerat, eaque deleniti quos, modi sunt voluptas quasi delectus consectetur officia nisi voluptates rerum quia natus!
-                    </li>
+                    <span className="ml-6.5 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
                   </ul>
                 </div>
-
-                <div className="pt-10">
-                  <h5 className="text-lg text-gray-400 font-semibold">Sinonymous <span className="text-(--purple) font-bold ml-5">electronic keyboard</span></h5>
-                </div>
-            </div>
-
-            <PartOfSpeech title="verb" />
-
-            <div className="mr-auto">
-              <div>
-                <h5 className="text-lg text-gray-400 font-semibold">Meaning</h5>
-                <ul className="space-y-2 pt-5">
-                  <li className="flex items-center gap-5 text-sm">
-                    <span className="p-[3px] rounded-full bg-black"></span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </li>
-                  <span className="ml-6.5 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                </ul>
               </div>
-
-              <Source url="https://api.dictionaryapi.dev/api/v2/entries/en/keyboard" />
             </div>
+
+            <Source url="https://api.dictionaryapi.dev/api/v2/entries/en/keyboard" />
           </div>
         )}
       </main>
