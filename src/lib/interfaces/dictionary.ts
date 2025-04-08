@@ -21,4 +21,5 @@ export interface DictionaryEntry {
   phonetic?: string
   phonetics: IPhonetics[]
   meanings: IMeanings[]
+  sourceUrls?: string
 }

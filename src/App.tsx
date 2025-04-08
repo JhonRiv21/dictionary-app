@@ -40,7 +40,7 @@ function App() {
   
         <div className="w-full">
           <div className="relative">
-            <input onChange={(e) => setWordValue(e.target.value)} className="bg-gray-100 border border-gray-300 w-full py-3 px-3 rounded-xl "/>
+            <input value={wordValue} onChange={(e) => setWordValue(e.target.value)} className="bg-gray-100 border border-gray-300 w-full py-3 px-3 rounded-xl "/>
             <span className="absolute right-4 top-3.5 pointer-events-none">
               <svg width="20" height="20" viewBox="0 0 24 24"><path fill="none" className="stroke-(--light-gray)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.553 15.553a7.06 7.06 0 1 0-9.985-9.985a7.06 7.06 0 0 0 9.985 9.985m0 0L20 20"/></svg>
             </span>
@@ -125,7 +125,7 @@ function App() {
                 ))}
               </div>
             ))}
-            <Source url={`https://api.dictionaryapi.dev/api/v2/entries/en/${wordValue}`} />
+            <Source url= {data[0]?.sourceUrls ?? ''} />
           </div>
         )}
       </main>
