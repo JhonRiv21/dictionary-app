@@ -8,7 +8,7 @@ import { DictionaryEntry } from "./lib/interfaces/dictionary";
 
 function App() {
   const [ isLoading, setIsLoading ] = useState(true);
-  const [ wordValue, setWordValue ] = useState('');
+  const [ wordValue, setWordValue ] = useState('word');
   const [ data, setData ] = useState<DictionaryEntry[] | null>(null)
 
   const searchData = async (word: string) => {
@@ -65,7 +65,7 @@ function App() {
                   const audio = new Audio(firstAudio.audio);
                   audio.play();
                 }}
-                className="bg-(--light-purple) cursor-pointer p-4 rounded-full flex hover:bg-[--light-purple]/80 transition duration-500"
+                className="bg-(--light-purple) cursor-pointer p-4 rounded-full flex hover:bg-(--light-purple)/80 transition duration-500"
               >
                 <svg width="20" height="20" viewBox="0 0 512 512">
                   <path className="fill-(--purple)" d="M133 440a35.37 35.37 0 0 1-17.5-4.67c-12-6.8-19.46-20-19.46-34.33V111c0-14.37 7.46-27.53 19.46-34.33a35.13 35.13 0 0 1 35.77.45l247.85 148.36a36 36 0 0 1 0 61l-247.89 148.4A35.5 35.5 0 0 1 133 440"/>
@@ -125,7 +125,7 @@ function App() {
                 ))}
               </div>
             ))}
-            <Source url="https://api.dictionaryapi.dev/api/v2/entries/en/keyboard" />
+            <Source url={`https://api.dictionaryapi.dev/api/v2/entries/en/${wordValue}`} />
           </div>
         )}
       </main>
