@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { PartOfSpeech } from "./lib/components/PartOfSpeech"
 import { Source } from "./lib/components/source"
 import { searchInDictionary } from "./lib/services/dictionary";
-import React from "react";
 import { DictionaryEntry } from "./lib/interfaces/dictionary";
 import { Searcher } from "./lib/components/Searcher";
 import { PhraseAndAudio } from "./lib/components/PhraseAndAudio";
@@ -37,10 +36,16 @@ function App() {
     }, 800)
 
     return () => {
-      clearInterval(handler)
+      clearTimeout(handler)
     }
   }, [wordValue]);
 
+  const renderStatus = () => {
+    if (isLoading) return "Cargando datos...";
+    if (!wordValue) return "Insert a word to search...";
+    return null;
+  };
+  
   return (
     <>
       <main className='mx-auto flex flex-col justify-center items-center px-5 md:px-0 py-10 space-y-10'>
@@ -52,10 +57,8 @@ function App() {
           audioUrl={audioUrl}
         />
 
-        {isLoading ? (
-          <h2 className="text-4xl mt-20">Cargando datos...</h2>
-        ) : !wordValue ? (
-          <h2 className="text-4xl mt-20">Insert a word to search...</h2>
+      {renderStatus() ? (
+         <h2 className="text-4xl mt-20">{renderStatus()}</h2>
         ) : !data ? (
           <h2 className="text-4xl mt-20">Word not found in the dictionary</h2>
         ) : (
