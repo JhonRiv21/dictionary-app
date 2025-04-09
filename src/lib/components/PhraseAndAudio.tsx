@@ -15,7 +15,7 @@ export const PhraseAndAudio: React.FC<IPhraseAndAudio> = ({word, phonetic, audio
   return (
     <div className="flex flex-wrap gap-4 flex-row justify-between w-full items-center -mb-1">
       <div>
-        <h1 className="text5xl md:text-6xl font-bold">{word}</h1>   
+        <h1 className="text-5xl md:text-6xl font-bold">{word}</h1>   
           {phonetic && (
             <p className="text-(--purple) text-2xl md:text-3xl pt-2 font-bold">
               {phonetic}
