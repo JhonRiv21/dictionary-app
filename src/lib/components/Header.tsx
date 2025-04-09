@@ -6,21 +6,20 @@ function Header() {
 
   useEffect(() => {
     const savedFont = localStorage.getItem('selectedFont') || 'playfair';
-    setSelectedFont(savedFont)
-    document.documentElement.style.setProperty('--active-font', `var(--font-${savedFont})`);
-  }, [])
-
-  useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     const savedChecked = localStorage.getItem('checked') === 'true';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    setSelectedFont(savedFont)
     setIsChecked(savedChecked);
-  }, []);
+
+    document.documentElement.style.setProperty('--active-font', `var(--font-${savedFont})`);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, [])
 
   const changeFont = (font: string) => {
-    document.documentElement.style.setProperty('--active-font', `var(--font-${font})`);
     setSelectedFont(font)
     localStorage.setItem('selectedFont', font);
+    document.documentElement.style.setProperty('--active-font', `var(--font-${font})`);
   }
 
   const changeTheme = () => {
@@ -28,9 +27,9 @@ function Header() {
     const nextTheme = nextChecked ? 'dark' : 'light';
 
     setIsChecked(nextChecked);
-    document.documentElement.setAttribute('data-theme', nextTheme);
     localStorage.setItem('theme', nextTheme);
     localStorage.setItem('checked', String(nextChecked));
+    document.documentElement.setAttribute('data-theme', nextTheme);
   };
 
   return (
@@ -41,7 +40,7 @@ function Header() {
         </div>
 
         <div className="flex flex-row gap-5 items-center justify-center">
-          <select value={selectedFont} className="outline-none p-2 rounded" onChange={(e) => changeFont(e.target.value)}>
+          <select value={selectedFont} className="outline-none p-2 rounded cursor-pointer" onChange={(e) => changeFont(e.target.value)}>
             <option className="dark:text-black" value="playfair">Playfair Display</option>
             <option className="dark:text-black" value="inter">Inter</option>
             <option className="dark:text-black" value="merriweather">Merriweather</option>
