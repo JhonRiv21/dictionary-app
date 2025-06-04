@@ -41,7 +41,7 @@ function App() {
   }, [wordValue]);
 
   const renderStatus = () => {
-    if (isLoading) return "Cargando datos...";
+    if (isLoading) return "Loading data...";
     if (!wordValue) return "Insert a word to search...";
     return null;
   };
