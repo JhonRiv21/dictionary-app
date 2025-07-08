@@ -1,24 +1,24 @@
 # 📚 Dictionary App
 
-Un diccionario en inglés hecho con **React + Vite + TypeScript**, que consume datos desde la [Free Dictionary API](https://api.dictionaryapi.dev/). Incluye funcionalidades como:
+An English dictionary built with **React + Vite + TypeScript**, which consumes data from the [Free Dictionary API](https://api.dictionaryapi.dev/). It includes features such as:
 
-- 🔍 Búsqueda con debounce
-- 🔊 Reproducción de pronunciación
-- 🌗 Light/Dark mode con persistencia
-- 🔤 Cambio de fuente tipográfica
-- 💬 Definiciones, ejemplos y sinónimos
-- ⚡ Diseño responsive y minimalista
-
----
-
-## 🧪 Tecnologías usadas
-
-- **React** con **TypeScript**
-- **Tailwind CSS** para estilos
-- **Free Dictionary API** como fuente de datos
-- **LocalStorage** para persistencia de tema y fuente
-- Arquitectura modular con componentes reutilizables
+- 🔍 Bounce-back search
+- 🔊 Pronunciation playback
+- 🌗 Light/dark mode with persistence
+- 🔤 Font switching
+- 💬 Definitions, examples, and synonyms
+- ⚡ Responsive and minimalist design.
 
 ---
 
-Está desplegado en vercel, completamente listo para realizar búsquedas.
+## 🧪 Technologies used
+
+- **React** with **TypeScript**
+- **Tailwind CSS** for styles
+- **Free Dictionary API** as a data source
+- **LocalStorage** for theme and font persistence
+- Modular architecture with reusable components.
+
+---
+
+It is deployed in Vercel, fully searchable.
